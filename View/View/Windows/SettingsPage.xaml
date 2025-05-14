@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FYTP.View.Windows"
+             x:Class="FYTP.View.Windows.SettingsPage"
+             Title="">
+    
+    <VerticalStackLayout
+        Padding="20,0"
+        Spacing="25">
+        <Frame
+            BackgroundColor="#512BD4">
+            <Label 
+                Text="Settings"
+                TextColor="White"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+        </Frame>
+        
+        <Label 
+            HeightRequest="20"/>
+        <Label
+            HorizontalOptions="Center"
+            FontSize="Micro"
+            Text="Download directory"/>
+        <HorizontalStackLayout
+            Spacing="10"
+            HorizontalOptions="Center">
+            <Frame
+                BorderColor="#512BD4">
+                <Label
+                    Text="{Binding DownloadDirectory}"/>
+            </Frame>
+            <Button 
+                Text="Select directory"
+                Command="{Binding SelectDirectory} "/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

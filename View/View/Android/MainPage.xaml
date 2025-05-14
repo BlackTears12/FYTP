@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FYTP.View.Android"
+             x:Class="FYTP.View.Android.MainPage"
+             BackgroundColor="White">
+
+    <ScrollView BackgroundColor="White">
+        <VerticalStackLayout
+            Padding="20,0"
+            Spacing="25">
+            <Label
+                Text="Free YouTube Portal"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                VerticalTextAlignment="Center"
+                FontSize="Title"
+                FontAttributes="Bold"
+                TextColor="Black"
+                HeightRequest="150"/>
+            <Frame 
+                BorderColor="#512BD4"
+                Padding="1">
+                <Entry
+                    VerticalOptions="End"
+                    x:Name="YtLinkEntry"
+                    MaxLength="200"
+                    TextColor="Black"
+                    Text="{Binding VideoURL}" />
+            </Frame>
+            <Button
+                x:Name="DownloadButton"
+                Text="Download" 
+                MinimumHeightRequest="50"
+                BackgroundColor="{Binding DownloadButtonColor}"
+                TextColor="White"
+                SemanticProperties.Hint="Downloads the yt video"
+                Command="{Binding DownloadCommand}"
+                HorizontalOptions="Fill" />
+            <HorizontalStackLayout
+                VerticalOptions="Center"
+                Spacing="10">
+                <Button
+                    x:Name="SettingsButton"
+                    Text="Settings"
+                    BackgroundColor="#512BD4"
+                    TextColor="White"
+                    Command="{Binding SettingsCommand}"/>
+                <Label WidthRequest="20"/>
+                <HorizontalStackLayout
+                        HorizontalOptions="Fill"
+                        VerticalOptions="Fill">
+                    <Label
+                            Text="Only audio"
+                            FontSize="Medium"
+                            TextColor="Black"
+                            HorizontalOptions="Fill"
+                            VerticalOptions="Center"/>
+                        <CheckBox
+                            IsChecked="{Binding AudioOnly}" 
+                            Color="#512BD4"
+                            VerticalOptions="Fill"
+                            HorizontalOptions="Center"/>
+                </HorizontalStackLayout>
+            </HorizontalStackLayout>
+            <ProgressBar
+                Progress="{Binding DownloadProgress}" 
+                ProgressColor="#512BD4"/>
+            <Label
+                x:Name="ResolvedLabel"
+                TextColor="Black"
+                Text="{Binding DownloadOutput}" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

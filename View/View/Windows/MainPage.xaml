@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FYTP.View.Windows"
+             x:Class="FYTP.View.Windows.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="20,0"
+            Spacing="25">
+            <Label
+                Text="Free YouTube Portal"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                FontSize="Large"
+                HeightRequest="100"/>
+            <Entry
+                x:Name="YtLinkEntry"
+                MaxLength="200"
+                Text="{Binding VideoURL}" />
+            <Button
+                x:Name="DownloadButton"
+                Text="Download" 
+                BackgroundColor="{Binding DownloadButtonColor}"
+                SemanticProperties.Hint="Downloads the yt video"
+                Command="{Binding DownloadCommand}"
+                HorizontalOptions="Fill" />
+            <HorizontalStackLayout
+                Spacing="10">
+                <Button
+                    x:Name="SettingsButton"
+                    Text="Settings"
+                    Command="{Binding SettingsCommand}"/>
+                <Label
+                    WidthRequest="20"/>
+                    <HorizontalStackLayout><Label
+                        Text="Only audio"
+                        FontSize="Micro"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"/>
+                    <CheckBox
+                        IsChecked="{Binding AudioOnly}" />
+                </HorizontalStackLayout>
+            </HorizontalStackLayout>
+            <ProgressBar Progress="{Binding DownloadProgress}" />
+            <Label
+                x:Name="ResolvedLabel"
+                Text="{Binding DownloadOutput}" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
